@@ -9,13 +9,13 @@ const bodyParser = require("body-parser");
 const app = express();
 require("dotenv").config()
 
-app.use(
-    cors({
-      origin: "https://requin-sample-project-jjd9.vercel.app", // Frontend URL
-      credentials: true, // Enable cookies
-    })
-  );
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+  };
 
+app.use(cors(corsOptions))
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(fileUpload())

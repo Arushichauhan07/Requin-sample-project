@@ -105,6 +105,16 @@
   };
 
 
+  const handleOpenFile = () => {
+    if (User?.role === "user" || User?.role === "admin") {
+      setShowPdf(true);  
+    } else {
+      setShowPdf(false); 
+      toggleModal("login");  
+    }
+  };
+  
+
   return (
     <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#f5f5f5] to-[#e0e0e0] overflow-x-hidden">
       {/* Sidebar */}
@@ -156,7 +166,8 @@
           className="bg-white shadow-lg rounded-lg p-4 flex items-center gap-4 hover:shadow-2xl transition-shadow duration-200 cursor-pointer"
           onClick={() => {
             setSelectedFileId(file._id);
-            setShowPdf(true);
+            // setShowPdf(true);
+            handleOpenFile()
           }}
         >
           {/* PDF Icon */}
@@ -181,6 +192,7 @@
         <PreviewPdf
           fileId={selectedFileId}
           setShowPdf={setShowPdf}
+          handleOpenFile={handleOpenFile}
           showPdf={showPdf}
           sampleFiles={sampleFiles}
           handleDeleteFile={handleDeleteFile}
