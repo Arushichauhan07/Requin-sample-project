@@ -9,18 +9,12 @@ const bodyParser = require("body-parser");
 const app = express();
 require("dotenv").config()
 
-<<<<<<< HEAD
 app.use(
     cors({
       origin: "https://requin-sample-project-jjd9.vercel.app", // Frontend URL
       credentials: true, // Enable cookies
     })
   );
-=======
-app.use(cors([{
-    origin: ['https://requin-sample-project-jjd9.vercel.app']
-}]));
->>>>>>> 77629eaef1b41cdc251afe5f2ee8bd2db2cbb2e9
 
 app.use(bodyParser.json())
 app.use(express.json())
