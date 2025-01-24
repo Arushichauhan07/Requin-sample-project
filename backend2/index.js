@@ -10,11 +10,17 @@ const app = express();
 require("dotenv").config()
 
 const corsOptions = {
-    // origin: 'http://localhost:3000',
-    origin: 'https://requin-sample-project.vercel.app/',
+    origin: (origin, callback) => {
+      if (origin && origin.endsWith('.vercel.app')) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type']
   };
+  
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
