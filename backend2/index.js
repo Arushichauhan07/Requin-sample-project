@@ -10,23 +10,24 @@ const app = express();
 require("dotenv").config()
 
 const corsOptions = {
-    origin: function (origin, callback) {
-      const allowedOrigins = [
-        'https://requin-sample-project.vercel.app',
-        'https://requin-sample-project-jjd9-irfmsx14i-arushis-projects-19759d41.vercel.app'
-      ];
-  
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        // Allow requests from the allowed origins (or allow requests without an origin, like curl)
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'X-CSRF-Token', 'X-Requested-With', 'Accept', 'Accept-Version', 'Content-Length', 'Content-MD5', 'Date']
-  };
-  
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+       '*',
+      'https://requin-sample-project.vercel.app',
+      'https://requin-sample-project-jjd9-irfmsx14i-arushis-projects-19759d41.vercel.app'
+    ];
+
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // Allow requests from the allowed origins (or allow requests without an origin, like curl)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'X-CSRF-Token', 'X-Requested-With', 'Accept', 'Accept-Version', 'Content-Length', 'Content-MD5', 'Date']
+};
+
 
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
