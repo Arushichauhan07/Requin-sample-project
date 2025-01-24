@@ -11,10 +11,10 @@ require("dotenv").config()
 
 app.use(
     cors({
-      origin: "https://requin-sample-project-jjd9.vercel.app", // Frontend URL
+      origin: "https://requin-quiz.vercel.app", // Frontend URL
       credentials: true, // Enable cookies
     })
-  );
+);
 
 app.use(bodyParser.json())
 app.use(express.json())
@@ -35,5 +35,4 @@ mongoose
 app.listen(process.env.PORT, () => {
     console.log(`Listening on Port ${process.env.PORT}`)
 })
-)
-})
+
