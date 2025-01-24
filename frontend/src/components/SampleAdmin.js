@@ -5,7 +5,7 @@ import { fetchAllFiles } from '../features/sample/sampleApis';
 const SampleAdmin = () => {
   const dispatch = useDispatch();
   const { sampleFiles } = useSelector((state) => state.AllSample);
-  console.log("sampleFiles", sampleFiles);
+  // console.log("sampleFiles", sampleFiles);
   
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const SampleAdmin = () => {
     <div className="p-4 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Sample Files Details</h1>
 
-      {sampleFiles && sampleFiles?.data.length > 0 ? (
+      {sampleFiles && sampleFiles?.data?.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {sampleFiles?.data.map((file) => (
             <div key={file.id} className="bg-white shadow-lg rounded-lg overflow-hidden">

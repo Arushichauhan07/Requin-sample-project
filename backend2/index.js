@@ -12,6 +12,7 @@ require("dotenv").config()
 app.use(
     cors({
       origin: "https://requin-sample-project-jjd9.vercel.app", // Frontend URL
+      // origin: "http://localhost:3000", // Frontend URL
       credentials: true, // Enable cookies
     })
   );
