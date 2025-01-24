@@ -62,7 +62,6 @@
         })
         
         .addCase(loginUser.fulfilled, (state, action) => {
-            console.log("action", action.payload.data)
 
             state.loading = false;
             state.user = action.payload.data; 
