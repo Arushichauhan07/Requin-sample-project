@@ -10,7 +10,7 @@ const app = express();
 require("dotenv").config()
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://requin-sample-project-jjd9-fs1f4gckf-arushis-projects-19759d41.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type']
   };
