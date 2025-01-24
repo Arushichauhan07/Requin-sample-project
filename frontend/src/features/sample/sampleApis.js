@@ -6,7 +6,7 @@ export const sampleFileUpload = createAsyncThunk(
     'sample/sampleFileUpload',
     async (inputs, {dispatch, rejectWithValue }) => {
         try {
-            const response = await axios.post(`http://localhost:5000/sample/sample-upload`, inputs);
+            const response = await axios.post(`${import.meta.env.backend_base_url}/sample/sample-upload`, inputs);
             // console.log("Uploaded file details:", response);
 
             dispatch(fetchAllFiles());
@@ -22,7 +22,7 @@ export const fetchAllFiles = createAsyncThunk(
     'sample/fetchAllFiles',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:5000/sample/get-allfiles`);
+            const response = await axios.get(`${import.meta.env.backend_base_url}/sample/get-allfiles`);
             // console.log("Fetched files:", response);
             return response.data;
         } catch (error) {

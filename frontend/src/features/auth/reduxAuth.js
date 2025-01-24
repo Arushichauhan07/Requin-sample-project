@@ -6,7 +6,7 @@
     async (credentials, {rejectWithValue }) => { 
 
         try {
-        const response = await axios.post('http://localhost:5000/api/login', credentials); 
+        const response = await axios.post(`${import.meta.env.backend_base_url}/api/login`, credentials); 
         return response.data;
         
         
@@ -22,7 +22,7 @@
         async (credentials, { rejectWithValue, dispatch }) => { 
     
         try {
-            const response = await axios.post('http://localhost:5000/api/register', credentials); 
+            const response = await axios.post(`${import.meta.env.backend_base_url}/api/register`, credentials); 
             return response.data; 
              
         } catch (error) {

@@ -6,7 +6,7 @@ export const getAllUsers = createAsyncThunk(
     'users/getAllUsers',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/get-allUsers`);
+            const response = await axios.get(`${import.meta.env.backend_base_url}/api/get-allUsers`);
             // console.log("users response", response);
             return response.data;
         } catch (error) {
