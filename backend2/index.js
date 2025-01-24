@@ -9,26 +9,28 @@ const bodyParser = require("body-parser");
 const app = express();
 require("dotenv").config()
 
-const corsOptions = {
-    origin: function (origin, callback) {
-      const allowedOrigins = [
-        '*',
-        'https://requin-sample-project.vercel.app',
-        'https://requin-sample-project-jjd9-irfmsx14i-arushis-projects-19759d41.vercel.app'
-      ];
+const allowedOrigins = [
+    'http://localhost:8081',      // Web on localhost
+    'http://localhost:3000',       // Backend testing from localhost
+    'https://requin-sample-project-jjd9.vercel.app/'
+  ];
   
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like from tools such as Postman)
+      if (!origin) return callback(null, true);
+      
+      // Check if the origin is in the allowed list
+      if (allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'X-CSRF-Token', 'X-Requested-With', 'Accept', 'Accept-Version', 'Content-Length', 'Content-MD5', 'Date'],
-    credentials: true, 
-  };
+    credentials: true  // Allow cookies and credentials to be passed
+  }));
 
-app.use(cors(corsOptions))
+
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(fileUpload())
