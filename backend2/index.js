@@ -10,7 +10,7 @@ const app = express();
 require("dotenv").config()
 
 app.use(cors([{
-    origin: ['https://requin-sample-project-jjd9.vercel.app', 'https://requin-sample-project.vercel.app','http://localhost:3000']
+    origin: ['https://requin-sample-project-jjd9.vercel.app']
 }]));
 
 app.use(bodyParser.json())
