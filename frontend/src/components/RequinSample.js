@@ -75,7 +75,7 @@
 
   const handleDeleteFile = async (fileId) => {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/sample/deleteFile/${fileId}`);
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/sample/deleteFile/${fileId}`);
     
     if (response.status === 200) {
       console.log("File deleted successfully");
@@ -94,7 +94,7 @@
 
   const handleEditFile = async (fileId, updatedData) => {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/sample/editFile/${fileId}`, updatedData);
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/sample/editFile/${fileId}`, updatedData);
     
     if (response.status === 200) {
       console.log("File edited successfully");

@@ -6,7 +6,7 @@ export const sampleFileUpload = createAsyncThunk(
     'sample/sampleFileUpload',
     async (inputs, {dispatch, rejectWithValue }) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/sample/sample-upload`, inputs);
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/sample/sample-upload`, inputs);
             // console.log("Uploaded file details:", response);
 
             dispatch(fetchAllFiles());
@@ -22,7 +22,7 @@ export const fetchAllFiles = createAsyncThunk(
     'sample/fetchAllFiles',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/sample/get-allfiles`);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/sample/get-allfiles`);
             // console.log("Fetched files:", response);
             return response.data;
         } catch (error) {

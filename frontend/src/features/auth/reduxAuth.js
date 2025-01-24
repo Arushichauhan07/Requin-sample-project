@@ -6,7 +6,7 @@
     async (credentials, {rejectWithValue }) => { 
 
         try {
-        const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/login`, credentials); 
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/login`, credentials); 
         return response.data;
         
         
@@ -22,7 +22,7 @@
         async (credentials, { rejectWithValue, dispatch }) => { 
     
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/register`, credentials); 
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/register`, credentials); 
             return response.data; 
              
         } catch (error) {
